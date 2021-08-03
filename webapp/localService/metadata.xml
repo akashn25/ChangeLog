@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://192.168.1.109:8000/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="Y_C_CHANGEDOCUMENTS_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Y_C_CHANGEDOCUMENTSType" sap:label="CDS View für Änderungsbelege" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="dat_tim"/>
+                    <PropertyRef Name="objectid"/>
+                    <PropertyRef Name="fname"/>
+                </Key>
+                <Property Name="dat_tim" Type="Edm.String" Nullable="false" MaxLength="19" sap:display-format="UpperCase" sap:label="" sap:quickinfo="19 Characters"/>
+                <Property Name="value_old" Type="Edm.String" MaxLength="254" sap:display-format="UpperCase" sap:label="Old value" sap:quickinfo="Old contents of changed field"/>
+                <Property Name="value_new" Type="Edm.String" MaxLength="254" sap:display-format="UpperCase" sap:label="New value" sap:quickinfo="New contents of changed field"/>
+                <Property Name="chngind" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Change Indicator" sap:quickinfo="Change Type (U, I, E, D)"/>
+                <Property Name="objectid" Type="Edm.String" Nullable="false" MaxLength="90" sap:display-format="UpperCase" sap:label="Object Value"/>
+                <Property Name="fname" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Field Name"/>
+                <Property Name="username" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User" sap:quickinfo="User name of the person responsible in change document"/>
+                <Property Name="name" Type="Edm.String" MaxLength="80" sap:label="Full Name" sap:quickinfo="Full Name of Person"/>
+                <Property Name="tabname" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Table Name"/>
+                <Property Name="tabkey" Type="Edm.String" MaxLength="70" sap:display-format="UpperCase" sap:label="Table Key" sap:quickinfo="Changed table record key"/>
+                <Property Name="itemno" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Reserve" sap:quickinfo="Character field of length 6"/>
+                <Property Name="fielddesc" Type="Edm.String" MaxLength="40" sap:label="Long field label" sap:quickinfo="Long Field Label"/>
+            </EntityType>
+            <EntityContainer Name="Y_C_CHANGEDOCUMENTS_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Y_C_CHANGEDOCUMENTS" EntityType="Y_C_CHANGEDOCUMENTS_CDS.Y_C_CHANGEDOCUMENTSType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://192.168.1.109:8000/sap/opu/odata/sap/Y_C_CHANGEDOCUMENTS_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://192.168.1.109:8000/sap/opu/odata/sap/Y_C_CHANGEDOCUMENTS_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

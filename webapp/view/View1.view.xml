@@ -1,0 +1,32 @@
+<mvc:View
+    controllerName="chngdoc.dev.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns="sap.suite.ui.commons"
+	xmlns:core="sap.ui.core">
+	<m:Shell id="shell">
+		<m:App id="app">
+			<m:pages>
+				<m:Page id="page" title="{i18n>title}">
+	<m:OverflowToolbar id="idToolbar">
+		<m:content>
+			<m:Label text="Select Table"></m:Label>
+			<m:Select id="idTableSelector" change="tableChanged">
+				<core:Item key="ALL" text="All"/>
+				<core:Item key="VBAP" text="VBAP"/>
+				<core:Item key="VBAK" text="VBAK"/>
+			</m:Select>
+		</m:content>
+	</m:OverflowToolbar>
+	<Timeline id="idTimeline"
+			enableDoubleSided="true"
+			groupBy="objectid"
+			growingThreshold="100"
+			filterTitle="Document Number">
+	</Timeline>
+				</m:Page>
+			</m:pages>
+		</m:App>
+	</m:Shell>
+</mvc:View>
