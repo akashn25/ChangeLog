@@ -32,7 +32,7 @@ sap.ui.define([
 				// );
 				this._timeline.bindAggregation("content", "/Y_C_CHANGEDOCUMENTS", oModel, oItem
 				);
-				this._initBindingEventHandler();
+				// this._initBindingEventHandler();
 			},
 
 			// convertData: function(oEvent){
